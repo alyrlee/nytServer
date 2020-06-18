@@ -1,10 +1,10 @@
-const expect = require('chai').expect
-const request = require('supertest')
-const app = require('../app')
+const expect = require('chai').expect;
+const request = require('supertest');
+const app = require('../app');
 
 describe('Get /books', () => {
     it('should return an array of books', () => {
-    it('should be 400 if sort is incorrect', () => {...})
+    it('should be 400 if sort is incorrect', () => {...});
     it('should sort by title', () => {
         return supertest(app)   
         .get('/books')
@@ -33,3 +33,4 @@ describe('Get /books', () => {
             expect(sorted).to.be.true;
         });
     });
+})
