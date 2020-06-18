@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+// Access-Control-Allow-Origin = "https://developer.mozilla.org";
 
 const app = express();
 
@@ -8,6 +9,12 @@ app.use(morgan('common'));
 app.use(cors());
 
 const books = require('./books.js');
+
+app.use(function(req, res, next) {  
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+}); 
 
 app.get('/books', (req, res) => {
   const { search = "", sort } = req.query;
